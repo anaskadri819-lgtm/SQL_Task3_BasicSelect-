@@ -1,0 +1,91 @@
+-- =============================================
+-- Task 3: Writing Basic SELECT Queries
+-- =============================================
+
+-- SAMPLE TABLE (You can create your own)
+CREATE TABLE students (
+    student_id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER,
+    course TEXT,
+    marks INTEGER
+);
+
+-- INSERT SAMPLE DATA
+INSERT INTO students (student_id, name, age, course, marks) VALUES
+(1, 'Anas', 20, 'SQL', 85),
+(2, 'Riya', 21, 'Python', 90),
+(3, 'Aman', 22, 'SQL', 70),
+(4, 'Sneha', 20, 'Java', 95),
+(5, 'Karan', 23, 'Python', 65);
+
+----------------------------------------------------
+-- 1. SELECT * and specific columns
+----------------------------------------------------
+SELECT * FROM students;
+SELECT name, marks FROM students;
+
+----------------------------------------------------
+-- 2. Filtering rows using WHERE
+----------------------------------------------------
+SELECT * FROM students
+WHERE course = 'SQL';
+
+----------------------------------------------------
+-- 3. Using AND, OR
+----------------------------------------------------
+SELECT * FROM students
+WHERE course = 'SQL' AND marks > 75;
+
+SELECT * FROM students
+WHERE course = 'Python' OR marks < 70;
+
+----------------------------------------------------
+-- 4. LIKE operator
+----------------------------------------------------
+SELECT * FROM students
+WHERE name LIKE 'A%';      -- starts with A
+
+SELECT * FROM students
+WHERE name LIKE '%a';      -- ends with a
+
+SELECT * FROM students
+WHERE name LIKE '%an%';    -- contains 'an'
+
+----------------------------------------------------
+-- 5. BETWEEN operator
+----------------------------------------------------
+SELECT * FROM students
+WHERE marks BETWEEN 70 AND 90;
+
+----------------------------------------------------
+-- 6. LIMIT output rows
+----------------------------------------------------
+SELECT * FROM students
+LIMIT 3;
+
+----------------------------------------------------
+-- 7. ORDER BY
+----------------------------------------------------
+SELECT * FROM students
+ORDER BY marks ASC;
+
+SELECT * FROM students
+ORDER BY marks DESC;
+
+----------------------------------------------------
+-- 8. Aliasing
+----------------------------------------------------
+SELECT name AS StudentName, marks AS Score
+FROM students;
+
+----------------------------------------------------
+-- 9. DISTINCT
+----------------------------------------------------
+SELECT DISTINCT course FROM students;
+
+----------------------------------------------------
+-- 10. Default sort order
+-- By default ORDER BY sorts in ASCENDING order.
+----------------------------------------------------
+SELECT * FROM students ORDER BY name;
